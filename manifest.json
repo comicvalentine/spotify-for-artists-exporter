@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Spotify for Artists Data Exporter",
+  "version": "0.1.0",
+  "description": "Export visible Spotify for Artists charts as JSON, CSV, or XLSX.",
+  "permissions": ["activeTab", "downloads"],
+  "host_permissions": ["https://artists.spotify.com/*"],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Export Spotify analytics"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://artists.spotify.com/*"],
+      "js": [
+        "utils/helpers.js",
+        "extractors/chart.js",
+        "extractors/listeners.js",
+        "extractors/streams.js",
+        "extractors/audience.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

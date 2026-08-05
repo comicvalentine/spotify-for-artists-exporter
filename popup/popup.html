@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spotify Data Exporter</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main>
+    <h1>Export analytics</h1>
+    <fieldset>
+      <legend>Metrics</legend>
+      <label><input type="checkbox" name="metric" value="listeners" checked> Listeners</label>
+      <label><input type="checkbox" name="metric" value="streams" checked> Streams</label>
+      <label><input type="checkbox" name="metric" value="followers"> Followers</label>
+    </fieldset>
+    <label class="format">Stream sources
+      <select id="sources">
+        <option value="all">All displayed</option>
+        <option value="active-programmed">Active + programmed</option>
+      </select>
+    </label>
+    <label class="format">Format
+      <select id="format">
+        <option value="json">JSON</option>
+        <option value="csv">CSV</option>
+        <option value="xlsx">XLSX</option>
+      </select>
+    </label>
+    <button id="export" type="button">Export</button>
+    <p id="status" role="status" aria-live="polite"></p>
+  </main>
+  <script src="helpers.js"></script>
+  <script src="../export/json.js"></script>
+  <script src="../export/csv.js"></script>
+  <script src="../export/xlsx.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
